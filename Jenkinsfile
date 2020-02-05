@@ -2,7 +2,7 @@ pipeline {
           agent any 
 	
 	        stages{
-	               stage ("clone repository") {
+	               stage("clone repository") {
 			           steps{
 	       
 		                       sh '''cd ~
