@@ -14,7 +14,7 @@ pipeline {
                 }
                 stage('--portal-core:latest--'){
                         steps{
-                                sh '''insert port number image="${BUILD_NUMBER}"
+                                sh '''image=" ":8080/keycloak-${BUILD_NUMBER}"
                                       docker-compose build -t ${image} /var/lib/jenkins/QA-Portal/qa-portal-angular
                                       docker compose push
 				      docker stack deploy docker-compose.yaml
