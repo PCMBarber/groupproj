@@ -5,33 +5,33 @@ pipeline {
 	                stage("clone repository"){
 			          steps{
 	       
-		                       sh '''cd ~
-			                     git clone "https://github.com/PCMBarber/groupproj
-			     }                '''
+		                         sh '''cd ~
+			                       git clone "https://github.com/PCMBarber/groupproj
+			     }                 '''
 
             	         }	
                          stage('--Test--'){
                                   steps{ 
-		                	sh '''cd ~
-			                    cd groupproj/qa-portal-angular/ 		
-                                            mvn clean install -Dskiptest
-				            '''
+		                	 sh '''cd ~
+			                       cd groupproj/qa-portal-angular/ 		
+                                               mvn clean install -Dskiptest
+				               '''
                                }  
                          }
                          stage('--portal-core:latest--'){
                          	  steps{
-                                	sh '''image=" ":8080/keycloak-${BUILD_NUMBER}"
-                                      	      docker-compose build -t ${image} /var/lib/jenkins/groupproj/qa-portal-angular
-                                      	      docker compose push
-				      	      docker stack deploy docker-compose.yaml
-				      	      '''
+                                	 sh '''image=" ":8080/keycloak-${BUILD_NUMBER}"
+                                      	       docker-compose build -t ${image} /var/lib/jenkins/groupproj/qa-portal-angular
+                                      	       docker compose push
+				      	       docker stack deploy docker-compose.yaml
+				      	       '''
                               }
                         }  
                 	stage('--Clean up--'){
                         	  steps{
-                                	sh '''ssh ##.##.##.##  << EOF
-                                              docker system prune -f
-                                              '''
+                                	 sh '''ssh ##.##.##.##  << EOF
+                                               docker system prune -f
+                                               '''
                              }
                        }
 		}
