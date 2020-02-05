@@ -7,7 +7,7 @@ pipeline {
 	       
 		                       sh '''cd ~
 			                     git clone "https://github.com/PCMBarber/groupproj
-			                     '''
+			     }                '''
 
             	        }	
                         stage('--Test--'){
@@ -32,7 +32,8 @@ pipeline {
                                 	sh '''ssh ##.##.##.##  << EOF
                                               docker system prune -f
                                               '''
-                        }
-                }
-        }
+                             }
+                       }
+		}
+	}
 }
