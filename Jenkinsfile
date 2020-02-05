@@ -4,14 +4,17 @@ pipeline {
               jdk 'jdk8'
               }
                 stage("clone repository") {
-		                    git clone "https://github.com/PCMBarber/groupproj"
-			            cd groupproj/qa-portal-angular/
+		               sh '''cd ~
+			             git clone "https://github.com/PCMBarber/groupproj
+			             '''
 
             	}	
                 stage('--Test--'){
                         steps{ 
-				
-                             mvn clean install - Dskiptest
+		               sh '''cd ~
+			             cd groupproj/qa-portal-angular/ 		
+                                     mvn clean install -Dskiptest
+				     '''
                         }  
                 }
                 stage('--portal-core:latest--'){
