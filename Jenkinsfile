@@ -8,7 +8,7 @@ pipeline {
                                        mvn clean install -DskipTests
 				       cd ..
                                        docker-compose build 
-                                       docker compose push
+                                       docker-compose push
 				       ssh 35.177.167.1 << EOF
 				       docker stack deploy --compose-file=docker-compose.yaml
 				       '''
