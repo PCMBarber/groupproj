@@ -5,9 +5,7 @@ pipeline {
                 stage('--Test1--'){
                         steps{ 
 		                 sh '''cd ~/
-			               cd groupproj/qa-portal-angular/ 
-                                       sudo systemctl start postgresql.service
-                                       sudo systemctl start mongodb 		
+			               cd groupproj/qa-portal-angular/ 		
                                        mvn install -Dskiptest 
                                        '''
                              }  
