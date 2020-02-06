@@ -6,7 +6,7 @@ pipeline {
                         steps{ 
 		                 sh '''cd ~/
 			               cd groupproj/qa-portal-services/ 		
-                                       mvn clean install  
+                                       mvn clean install -DskipTests 
                                        '''
                              }  
                 }                
@@ -31,13 +31,7 @@ pipeline {
                                       docker service update --image ${image} cohort-api
                                       '''
                             }
-                }
-                stage('--Test2--'){
-                       steps{ 
-                                sh'''mvn clean install
-                                     '''
-                            }  
-                }
+		}
                 stage('--cv-api--'){
                        steps{ 
                                  sh '''image="35.178.251.150:8087/user-api:build-${BUILD_NUMBER}"
@@ -48,12 +42,6 @@ pipeline {
                                        docker service update --image ${image} cv-api
                                        ''' 
                             } 
-                }
-                stage('--Test3--'){
-                        steps{ 
-                                sh'''mvn clean install 
-                                     '''
-                             }  
                 }
                  stage('--self-reflection-api--'){
                         steps{ 
@@ -66,12 +54,6 @@ pipeline {
                                        ''' 
                             } 
                 }
-                stage('--Test4--'){
-                        steps{ 
-                                sh '''mvn clean install 
-                                      '''
-                            }  
-                }
                  stage('--portal-application-api--'){
                         steps{ 
                                  sh '''image="35.178.251.150:8081/cv-api:build-${BUILD_NUMBER}"
@@ -83,12 +65,6 @@ pipeline {
                                        ''' 
                             } 
                 }
-                stage('--Test5--'){
-                        steps{ 
-                                sh '''mvn clean install  
-                                      '''
-                             }  
-                }
                  stage('--feedback-api--'){
                         steps{ 
                                  sh '''image="35.178.251.150:8084/feedback-api:build-${BUILD_NUMBER}"
@@ -99,12 +75,6 @@ pipeline {
                                        docker service update --image ${image} feedback-api
                                        ''' 
                             } 
-                }
-                stage('--Test6--'){
-                       steps{ 
-                                 sh '''mvn clean install 
-                                       '''   
-                            }  
                 }
                  stage('--form-api--'){
                         steps{ 
