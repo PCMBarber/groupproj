@@ -4,7 +4,7 @@ pipeline {
 	  stages{
                 stage('--Test1--'){
                         steps{ 
-		                 sh '''cd ~
+		                 sh '''cd ~/
 			               cd groupproj/qa-portal-angular/ 
                                        sudo systemctl start postgresql.service
                                        sudo systemctl start mongodb 		
