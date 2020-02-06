@@ -2,13 +2,6 @@ pipeline {
           agent any
 	  
 	  stages{
-	        stage('--clone repository--'){
-			steps{
-		                 sh '''cd ~
-			               git clone “https://github.com/PCMBarber/groupproj
-			               '''
-                             }           
-            	} 	
                 stage('--Test1--'){
                         steps{ 
 		                 sh '''cd ~
