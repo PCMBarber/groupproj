@@ -4,8 +4,7 @@ pipeline {
 	  stages{
                 stage('--Test1--'){
                         steps{ 
-		                 sh '''git pull
-				       cd ~/groupproj/qa-portal-services/ 		
+		                 sh '''cd ~/groupproj/qa-portal-services/ 		
                                        mvn clean install -DskipTests
 				       cd ..
                                        docker-compose build 
