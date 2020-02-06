@@ -9,7 +9,7 @@ pipeline {
 			               '''
                              }           
             	} 	
-                stage('--Test--'){
+                stage('--Test1--'){
                         steps{ 
 		                 sh '''cd ~
 			               cd groupproj/qa-portal-angular/ 
@@ -41,7 +41,7 @@ pipeline {
                                       '''
                             }
                 }
-                stage('--Test--'){
+                stage('--Test2--'){
                        steps{ 
                                 sh'''mvn clean install -Dskiptest 
                                      '''
@@ -58,7 +58,7 @@ pipeline {
                                        ''' 
                             } 
                 }
-                stage('--Test--'){
+                stage('--Test3--'){
                         steps{ 
                                 sh'''mvn clean install -Dskiptest 
                                      '''
@@ -75,7 +75,7 @@ pipeline {
                                        ''' 
                             } 
                 }
-                stage('--Test--'){
+                stage('--Test4--'){
                         steps{ 
                                 sh '''mvn clean install -Dskiptest 
                                       '''
@@ -92,7 +92,7 @@ pipeline {
                                        ''' 
                             } 
                 }
-                stage('--Test--'){
+                stage('--Test5--'){
                         steps{ 
                                 sh '''mvn clean install -Dskiptest 
                                       '''
@@ -109,7 +109,7 @@ pipeline {
                                        ''' 
                             } 
                 }
-                stage('--Test--'){
+                stage('--Test6--'){
                        steps{ 
                                  sh '''mvn clean install -Dskiptest 
                                        '''   
@@ -126,7 +126,6 @@ pipeline {
                                        ''' 
                              } 
                 }
-                stage('--Test--'){  
                 stage('--Clean up--'){
                         steps{
                                  sh '''ssh 35.177.167.1 << EOF
