@@ -9,14 +9,14 @@ pipeline {
 				       cd ..
                                        docker-compose build 
                                        docker-compose push
-				       ssh 18.130.195.35 << EOF
+				       ssh -i "docker-key.pem" ubuntu@18.130.195.35 << EOF
 				       docker stack deploy --compose-file=docker-compose.yaml
 				       '''
                             }
                  } 
                 stage('--Clean up--'){
                         steps{
-                                 sh '''ssh 18.130.195.35 << EOF
+                                 sh '''ssh -i "docker-key.pem" ubuntu@18.130.195.35 << EOF
                                        docker system prune -f
                                        '''
                             }
