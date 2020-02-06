@@ -2,7 +2,7 @@ pipeline{
         agent any
         
         stages{
-		stage(‘--building--‘){
+		stage(‘--build--‘){
 			steps{
 				sh ‘’'ssh deployment << EOF
 				      export BUILD_NUMBER=${BUILD_NUMBER}
