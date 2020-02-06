@@ -36,7 +36,7 @@ pipeline {
                                       docker build -t ${image} /var/lib/jenkins/groupproj/qa-portal-services/cohort-api
                                       docker push ${image}
                                       ssh 35.177.167.1  << EOF
-                                      docker service update --image ${image} core-api
+                                      docker service update --image ${image} cohort-api
                                       '''
                             }
                 }
@@ -53,7 +53,7 @@ pipeline {
                                        docker build -t ${image} /var/lib/jenkins/groupproj/qa-portal-services/cv-api
                                        docker push ${image}
                                        ssh 35.177.167.1  << EOF
-                                       docker service update --image ${image} user-api
+                                       docker service update --image ${image} cv-api
                                        ''' 
                             } 
                 }
