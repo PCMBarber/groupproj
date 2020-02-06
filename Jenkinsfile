@@ -1,24 +1,25 @@
 pipeline {
           agent any
 	  
-	      stages{
-	            stage('--clone repository--'){
-			            steps{
-		                         sh '''cd ~
-			                           git clone “https://github.com/PCMBarber/groupproj
-			                           '''
+	  stages{
+	        stage('--clone repository--'){
+			steps{
+		                 sh '''cd ~
+			               git clone “https://github.com/PCMBarber/groupproj
+			               '''
                              }           
             	} 	
                 stage('--Test--'){
                         steps{ 
-		                	     sh '''cd ~
-			                           cd groupproj/qa-portal-angular/ 
+		                 sh '''cd ~
+			               cd groupproj/qa-portal-angular/ 
                                        sudo systemctl start postgresql.service
                                        sudo systemctl start mongodb 		
                                        mvn install -Dskiptest 
                                        '''
                              }  
-                }                stage('--portal-core:latest--'){
+                }                
+		stage('--portal-core:latest--'){
                         steps{
                                  sh '''image="35.178.251.150:latest:8080/keycloak-${BUILD_NUMBER}"
                                        docker run -d -p 5000:5000 --restart=always --name registry registry:2
@@ -76,8 +77,8 @@ pipeline {
                 }
                 stage('--Test--'){
                         steps{ 
-                                sh'''mvn clean install -Dskiptest 
-                                     '''
+                                sh '''mvn clean install -Dskiptest 
+                                      '''
                             }  
                 }
                  stage('--portal-application-api--'){
@@ -93,8 +94,8 @@ pipeline {
                 }
                 stage('--Test--'){
                         steps{ 
-                                sh'''mvn clean install -Dskiptest 
-                                     '''
+                                sh '''mvn clean install -Dskiptest 
+                                      '''
                              }  
                 }
                  stage('--feedback-api--'){
