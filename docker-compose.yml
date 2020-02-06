@@ -68,7 +68,7 @@ services:
 
 
   portal-core:
-    image: portal-core:latest
+    image: stratcastor/portal-core:latest
     depends_on:
       - keycloak
       - cohort-api
@@ -90,7 +90,7 @@ services:
       - qa-portal
 
   cohort-api:
-    image: cohort-api:latest
+    image: stratcastor/cohort-api:latest
     build: 
       context: ./qa-portal-services
       args:
@@ -103,7 +103,7 @@ services:
       - target: 8086
 
   cv-api:
-    image: cv-api:latest
+    image: stratcastor/cv-api:latest
     environment:
       - JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
     build: 
@@ -119,7 +119,7 @@ services:
       - target: 8087
 
   self-reflection-api:
-    image: self-reflection-api:latest
+    image: stratcastor/self-reflection-api:latest
     environment:
       - JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
     build: 
@@ -134,7 +134,7 @@ services:
       - target: 8082
 
   portal-application-api:
-    image: portal-application-api:latest
+    image: stratcastor/portal-application-api:latest
     environment:
       - JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
     build: 
@@ -149,7 +149,7 @@ services:
       - target: 8081
 
   feedback-api:
-    image: feedback-api:latest
+    image: stratcastor/feedback-api:latest
     environment:
       - JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
     build: 
@@ -164,7 +164,7 @@ services:
       - target: 8084
 
   form-api:
-    image: form-api:latest
+    image: stratcastor/form-api:latest
     environment:
       - JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
     build: 
