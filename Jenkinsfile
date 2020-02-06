@@ -5,7 +5,7 @@ pipeline {
                 stage('--Test1--'){
                         steps{ 
 		                 sh '''cd ~/
-			               cd groupproj/qa-portal-angular/ 		
+			               cd groupproj/qa-portal-services/ 		
                                        mvn install -Dskiptest 
                                        '''
                              }  
@@ -14,7 +14,7 @@ pipeline {
                         steps{
                                  sh '''image="35.178.251.150:latest:8080/keycloak-${BUILD_NUMBER}"
                                        docker run -d -p 5000:5000 --restart=always --name registry registry:2
-                                       docker-compose build -t ${image} /var/lib/jenkins/groupproj/qa-portal-angular
+                                       docker-compose build -t ${image} /var/lib/jenkins/groupproj/qa-portal-services
                                        docker compose push
 				       docker stack deploy docker-compose.yaml
 				       shh 35.177.167.1 << EOF
