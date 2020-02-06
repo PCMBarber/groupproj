@@ -4,7 +4,7 @@ pipeline {
 	  stages{
 	            stage('--clone repository--'){
 			          steps{
-		                         sh ‘’'cd ~
+		                         sh '''cd ~
 			                       git clone “https://github.com/PCMBarber/groupproj
 			     }                 '''
             	}	
