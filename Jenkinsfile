@@ -6,7 +6,7 @@ pipeline {
                         steps{ 
 		                 sh '''cd ~/
 			               cd groupproj/qa-portal-services/ 		
-                                       mvn install -Dskiptest 
+                                       mvn clean install  
                                        '''
                              }  
                 }                
@@ -34,7 +34,7 @@ pipeline {
                 }
                 stage('--Test2--'){
                        steps{ 
-                                sh'''mvn clean install -Dskiptest 
+                                sh'''mvn clean install
                                      '''
                             }  
                 }
@@ -51,7 +51,7 @@ pipeline {
                 }
                 stage('--Test3--'){
                         steps{ 
-                                sh'''mvn clean install -Dskiptest 
+                                sh'''mvn clean install 
                                      '''
                              }  
                 }
@@ -68,7 +68,7 @@ pipeline {
                 }
                 stage('--Test4--'){
                         steps{ 
-                                sh '''mvn clean install -Dskiptest 
+                                sh '''mvn clean install 
                                       '''
                             }  
                 }
@@ -85,7 +85,7 @@ pipeline {
                 }
                 stage('--Test5--'){
                         steps{ 
-                                sh '''mvn clean install -Dskiptest 
+                                sh '''mvn clean install  
                                       '''
                              }  
                 }
@@ -102,7 +102,7 @@ pipeline {
                 }
                 stage('--Test6--'){
                        steps{ 
-                                 sh '''mvn clean install -Dskiptest 
+                                 sh '''mvn clean install 
                                        '''   
                             }  
                 }
